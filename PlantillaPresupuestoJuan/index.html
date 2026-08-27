@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Presupuesto Juan v1</title>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="formulario-previo">
+        <h2>Creación Rápida de Presupuesto</h2>
+        <form id="datos-previos-form">
+            <div>
+                <label for="input-fecha">Fecha del Presupuesto:</label>
+                <input type="date" id="input-fecha">
+            </div>
+            <div>
+                <label for="input-cliente">Nombre del Cliente:</label>
+                <input type="text" id="input-cliente" placeholder="Ej: Juan Pérez">
+            </div>
+            <div>
+                <label for="input-proyecto">Descripción del Proyecto:</label>
+                <input type="text" id="input-proyecto" placeholder="Ej: Portarretrato 10 x 15 cm">
+            </div>
+            <div>
+                <label for="input-numero">Número de Presupuesto:</label>
+                <input type="number" id="input-numero" placeholder="Ej: 001" value="1">
+            </div>
+
+            <hr>
+
+            <h3>Añadir Ítems</h3>
+            <div id="item-inputs">
+                <label for="input-item-detail">Detalle del Item:</label>
+                <input type="text" id="input-item-detail" value="Varilla">
+                <label for="input-item-cost">Costo (ARS):</label>
+                <input type="number" id="input-item-cost" value="5000" min="0">
+                <button type="button" id="agregar-item-btn">➕ Agregar Item a la Lista</button>
+            </div>
+
+            <ul id="lista-items-agregados">
+            </ul>
+
+            <hr>
+
+            <button type="submit" id="generar-presupuesto-btn">📝 Generar Presupuesto</button>
+        </form>
+    </div>
+
+    <div class="invoice-container hidden" id="presupuesto-content">
+        <div class="header" id="headerContent">
+            <div class="logo"></div>
+            <div class="header-info">
+                <input type="date" id="invoiceDate" class="date-input">
+                <div id="companyName">Juan I. Santoro</div>
+                <div id="companyCuit">20-37237816-7</div>
+            </div>
+        </div>
+        <div class="Contenido">
+            <div class="recuadro oculto"></div>
+            <div class="controls ocultar-al-imprimir-botones">
+                <button id="editButton" onclick="toggleEdit()">📝 Editar Contenido</button>
+                <button id="exportPdfButton" onclick="exportAsPdf()">📄 Exportar PDF</button>
+                <button id="exportJpgButton" onclick="exportAsImage()">🖼️ Exportar JPG</button>
+                <button id="printButton" onclick="Imprimir()">🖨 Imprimir Contenido</button>
+            </div>
+            <div class="title-section">
+                <h1>PRESUPUESTO</h1>
+                <div class="num">— NUM. <span id="invoiceNumber">X</span></div>
+            </div>
+
+            <div class="summary">
+                <div class="summary-block client">
+                    <strong>Cliente</strong>
+                    <span contenteditable="false" id="cliente-summary"></span>
+                </div>
+                <div class="summary-block project">
+                    <strong>Proyecto</strong>
+                    <span contenteditable="false" id="proyecto-summary"></span>
+                </div>
+            </div>
+            <div class="Lista">
+                <div class="items-list">
+                    <div class="items-header">
+                        <div class="detail-col">Detalle</div>
+                        <div class="cost-col">Costo / Valor</div>
+                    </div>
+
+                    <div class="item-group">
+                        <div class="item-row main">
+                            <div class="detail" contenteditable="false">Detalles del Proyecto</div>
+                            <div class="cost"></div>
+                        </div>
+                        <ul id="items-ul" class="estilo-tiras">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="controls ocultar-al-imprimir-botones" style="margin-top: -20px;">
+                <button id="addItemButton" onclick="addNewItem()" style="display:none;">➕ Agregar Item</button>
+            </div>
+            <div class="footer">
+
+                <div class="conditions-block">
+                    <strong>Condiciones</strong>
+                    <ol id="conditions-list">
+                        <li>Los enmarcados no serán entregados hasta que el pago total sea abonado
+                            y
+                            confirmado mediante un comprobante.</li>
+                        <li>No se permitirá la reducción del tiempo del proyecto ni la entrega anticipada. Se respetará
+                            el
+                            plazo de entrega estipulado, salvo casos de fuerza mayor o ajenos a las gestiones.</li>
+                        <li>No se efectuarán cambios al proyecto y/o archivos luego de su entrega completa en el plazo
+                            estipulado. De necesitar modificaciones que no se encuentren dentro de los plazos
+                            correspondientes, se armará un nuevo presupuesto.</li>
+                    </ol>
+                </div>
+
+                <div class="financial-block">
+                    <div class="total-box">
+                        <div class="total-row">
+                            <span class="label">TOTAL: </span>
+                            <span class="amount" id="totalAmount">$0<span class="ars">ARS</span></span>
+                        </div>
+                        <div class="delivery-time">
+                            <div>Plazo estimado de entrega: <strong contenteditable="false" id="deliveryTime">1
+                                    Semana</strong></div>
+                            <div>Seña del 50%: <strong class="amount" id="depositAmount">$0</strong><span
+                                    class="ars2">ARS</span></div>
+                        </div>
+                    </div>
+
+                    <div class="payment-methods">
+                        <strong>Métodos de Pago:</strong>
+                        <div><b>Alias:</b> juan.santoro.mp</div>
+                        <div><b>CBU:</b> 0000003100083344428039</div>
+                        <div><i><a href="mailto:juansantoro@live.com">(Transferencia Bancaria)</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact">
+                <div><a href="mailto:juansantoro@live.com"><img src="./Iconos/E-Mail.svg" alt="Correo Electrónico"
+                            class="Icono"> juansantoro@live.com</a>
+                </div>
+                <span>|</span>
+                <div><a href="https://instagram.com/@marcos.9.de.julio" target="_blank"><img src="./Iconos/Instagram.svg"
+                            alt="Instagram" class="Icono"> @marcos.9.de.julio</a>
+                </div>
+                <span>|</span>
+                <div><a href="https://wa.me/+543487708708"><img src="./Iconos/WhatsApp.svg" alt="WhatsApp"
+                            class="Icono"></a><a href="tel:+543487708708" alt="Teléfono">
+                        +54 (3487) 708708</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
