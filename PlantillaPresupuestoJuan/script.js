@@ -277,7 +277,31 @@ function exportAsImage() {
  * El usuario deberá seleccionar "Guardar como PDF" en el cuadro de diálogo.
  */
 function exportAsPdf() {
+    // 1. Guardar el título original de la pestaña por si quieres conservarlo después
+    const tituloOriginal = document.title;
+
+    // 2. Tomar los datos del HTML usando sus IDs
+    const presupuesto = "Presupuesto"
+    const idFactura = document.getElementById('input-numero').innerText;
+    const cliente = document.getElementById('cliente-summary').innerText;
+    const proyecto = document.getElementById('proyecto-summary').innerText;
+
+    // 3. Crear el nuevo nombre del archivo (limpiando espacios si es necesario)
+    // Ejemplo de formato: "Presupuesto_001_JuanPérez_1enmarcado"
+    const nuevoNombre = `${presupuesto}_${idFactura}_${cliente}_${proyecto}`.trim();
+
+    // 4. Cambiar temporalmente el título del navegador
+    document.title = nuevoNombre;
+
+    // 5. Disparar el comando de impresión del navegador
     window.print();
+
+    // 6. Restaurar el título original después de que se abre la ventana de impresión
+    // Usamos un pequeño retraso para asegurar que el navegador tome el nombre modificado
+    setTimeout(() => {
+        document.title = tituloOriginal;
+    }, 1000);
+
 }
 
 function Imprimir() {

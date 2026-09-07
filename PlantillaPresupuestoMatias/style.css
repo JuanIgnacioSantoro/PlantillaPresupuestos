@@ -3,11 +3,11 @@
     .ocultar-al-imprimir-botones {
         display: none !important;
     }
-
+    /*
     .Icono {
         display: none !important;
     }
-
+    */
 }
 
 img {
@@ -55,7 +55,7 @@ body {
     margin-bottom: 40px;
     width: 100%;
     height: 4.2cm;
-    background: url('./Banners/Banner_Original.jpg') left/cover no-repeat;
+    background: url('./Banners/Banner_Fondo_Negro.jpg') left/cover no-repeat;
 }
 
 .header-info {
