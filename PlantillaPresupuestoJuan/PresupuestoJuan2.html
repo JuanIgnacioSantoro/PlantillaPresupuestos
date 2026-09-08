@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)http://127.0.0.1:5500/PlantillaPresupuestoJuan/PresupuestoJuan.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Presupuesto Juan v1</title>
+    <script src="./PresupuestoJuan2_files/html2canvas.min.js.descarga"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="formulario-previo" class="hidden">
+        <h2>Creación Rápida de Presupuesto</h2>
+        <form id="datos-previos-form">
+            <div>
+                <label for="input-fecha">Fecha del Presupuesto:</label>
+                <input type="date" id="input-fecha">
+            </div>
+            <div>
+                <label for="input-cliente" class="sweezy-custom-cursor-default-hover" style="null;cursor: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAABOtJREFUWEe913tsFEUcB/Dv7O3ttZRSykNNc7R3hsQokiCiYjCYEEgqKCH2dRI1EjBCFGMI8Ifx+YftVTQ+ImI0MSYaosT+wR/yUAwRFSWGEq34CJKd7V1bSoGDPu56u7PzM3O7V1oooU8mudxudm9+n/3NzG9uWTQa3UBEOwB0MMZipmn+gRvYWDQa7Y5WhIrPddnoSVO3EOLhRCLx440yKIATq5qhr6uegdhGE6mLIi2Jqi3L2n8jEB7g0VK9/pmbkbggUP0cR9d54QB43DTNPZON8ABrSvX6p28CJOFcn0TtFgtmmy2J6HnLsnZOJiIHqHtkut6w3gPAJfTahLWvJNHyXz+I6CXLst6YLIQHWDVdb1g32wMID5FxCU+92YFjJzMA0VuWZW2bDIQC2LGVJcH6J2blAsOF9y0JQhI27erCd8f7wBg+45xvUFcnEqIA2VhliVG/dqYP8DKQ/xABL+6+gN0/90LTsJdzXgcgO1GIHKBuxTSjITZjKED4mVAYIsT3X8KH3/dCD7BD6XR6TWdnZ99EIDzAsmKjodYH+HMgl4H8sfqWhJ1H02g82I2AhmOO46xqa2s7P16EB3iw2Giomu5lYHDQq86BPScz2P5ND5iGv4UQK5LJZNt4EDlA7dKpRnx1yTAAAEJ6007BcseEfdzB5n09kAB3XXd5IpE4PVaEB3igyIivHAZwVTY8gML8cMbFhm97lUltYpVj3cQ8wOIiI15ZfHUGhhuOfCYE4URK4snDGfRJXBRCrB7LJuYB7plixFdMvQy4VmD19I6/RHP3SJzqIcSOZnHBoTSAKs75gdEMhwdYWGjEl031J6D0x3tQoMGgYY4TGYmaZoGzNmwp5VrLsppGilCA/toFhaH40ilDJhrydUBNvFza/So5+FyVbr98d2YJj510wbOs2zTNktEB5heE4ksKLwcaCOgHv2IVtGcIX7a7aE5JnE4DKUHISoABIKCDc142KkDN7aFQ4+KCoTVgAOE/vZ/63y65qGsWUJsDgAQR/QngDBH1Auh3XffzZDLZMjrAbUaocVFoaAby+0F+0vnLr+msxJZTLhjRVsuy3h5poGvdl5sDNXODocYFhgcg4EinQFPCRVda4tmKAJYU+YXIJTgu4b7fJVIujnPOF00EIFNzq17QOM8AT0tsa87i1/MSOkOGMeaUGZh25K4ANDtfESXePwu808VAJJdZlnV4PAiVgUx1RC+4v5Rh2wlbFbp+AI0A3gVQ5wIffRxlqFRZ8IelRxDuNjVVEvZxzleNF9A1M4hZZ7KEoMZaiKiWc/6P6jQcDhcGg0FrfgHN3ls+aKNyCS+nNHzRq5GU8s7W1ta/xopg5eXlNZqmvQ7gF9u2N7e3t6uKNtAikcirgvDa3rDEwkB+WRLaHWBxKoQA0aec8/VjBlzvh2VlZbMMw2hdXkCFn5Q6lwuSS9iUDuKg0FX1i1iW1XG9voa7nlvM12uRSGSXANv4U2kWFeTviC7QIhgesgthMGw3TVO93o26jQgQDofn6rr+b8xwtYagPfD33XGBubIIGuE9zvkLo44Or3qOqEWj0a81oqrdwX7cS24OsYMMfEAhaKAY5/yrEXV0xU0jBlRUVEQZY0cl2C13wMUlMLRBU8EP+EtRTipAdT5nzpyyQCCwFcA8VaSI6BDnXL26qXfJMbX/AaJ6SE5q1mCzAAAAAElFTkSuQmCC&quot;) 1 1, auto !important;">Nombre del Cliente:</label>
+                <input type="text" id="input-cliente" placeholder="Ej: Juan Pérez">
+            </div>
+            <div>
+                <label for="input-proyecto">Descripción del Proyecto:</label>
+                <input type="text" id="input-proyecto" placeholder="Ej: Portarretrato 10 x 15 cm">
+            </div>
+            <div>
+                <label for="input-numero">Número de Presupuesto:</label>
+                <input type="number" id="input-numero" placeholder="Ej: 001" value="1">
+            </div>
+
+            <hr>
+
+            <h3>Añadir Ítems</h3>
+            <div id="item-inputs">
+                <label for="input-item-detail">Detalle del Item:</label>
+                <input type="text" id="input-item-detail" value="Varilla">
+                <label for="input-item-cost">Costo (ARS):</label>
+                <input type="number" id="input-item-cost" value="5000" min="0">
+                <button type="button" id="agregar-item-btn">➕ Agregar Item a la Lista</button>
+            </div>
+
+            <ul id="lista-items-agregados">
+            <li><span>Varilla</span> - <strong>$5.000</strong></li></ul>
+
+            <hr>
+
+            <button type="submit" id="generar-presupuesto-btn">📝 Generar Presupuesto</button>
+        </form>
+    </div>
+
+    <div class="invoice-container" id="presupuesto-content">
+        <div class="header" id="headerContent">
+            <div class="logo"></div>
+            <div class="header-info">
+                <input type="date" id="invoiceDate" class="date-input" readonly="true" style="pointer-events: none;">
+                <div id="companyName">Juan I. Santoro</div>
+                <div id="companyCuit">20-37237816-7</div>
+            </div>
+        </div>
+        <div class="Contenido">
+            <div class="recuadro oculto"></div>
+            <div class="controls ocultar-al-imprimir-botones">
+                <button id="editButton" onclick="toggleEdit()" style="background-color: rgb(0, 123, 255);">📝 Editar Contenido</button>
+                <button id="exportPdfButton" onclick="exportAsPdf()">📄 Exportar PDF</button>
+                <button id="exportJpgButton" onclick="exportAsImage()">🖼️ Exportar JPG</button>
+                <button id="printButton" onclick="Imprimir()">🖨 Imprimir Contenido</button>
+            </div>
+            <div class="title-section">
+                <h1>PRESUPUESTO</h1>
+                <div class="num">— NUM. <span id="invoiceNumber" contenteditable="false">001</span></div>
+            </div>
+
+            <div class="summary">
+                <div class="summary-block client">
+                    <strong>Cliente</strong>
+                    <span contenteditable="false" id="cliente-summary"></span>
+                </div>
+                <div class="summary-block project">
+                    <strong>Proyecto</strong>
+                    <span contenteditable="false" id="proyecto-summary"></span>
+                </div>
+            </div>
+            <div class="Lista">
+                <div class="items-list">
+                    <div class="items-header">
+                        <div class="detail-col">Detalle</div>
+                        <div class="cost-col">Costo / Valor</div>
+                    </div>
+
+                    <div class="item-group">
+                        <div class="item-row main">
+                            <div class="detail" contenteditable="false">Detalles del Proyecto</div>
+                            <div class="cost"></div>
+                        </div>
+                        <ul id="items-ul" class="estilo-tiras"><li>
+            <div class="item-row sub">
+                <div class="detail" contenteditable="false"><br></div>
+                <button class="delete-item-btn" onclick="removeItem(this)" style="visibility: hidden;">❌</button>
+                <div class="cost" contenteditable="false" onblur="updateTotals()">$ 0</div>
+            </div>
+        </li></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="controls ocultar-al-imprimir-botones" style="margin-top: -20px;">
+                <button id="addItemButton" onclick="addNewItem()" style="display: none;">➕ Agregar Item</button>
+            </div>
+            <div class="footer">
+
+                <div class="conditions-block">
+                    <strong>Condiciones</strong>
+                    <ol id="conditions-list">
+                        <li>Los enmarcados no serán entregados hasta que el pago total sea abonado
+                            y
+                            confirmado mediante un comprobante.</li>
+                        <li>No se permitirá la reducción del tiempo del proyecto ni la entrega anticipada. Se respetará
+                            el
+                            plazo de entrega estipulado, salvo casos de fuerza mayor o ajenos a las gestiones.</li>
+                        <li>No se efectuarán cambios al proyecto y/o archivos luego de su entrega completa en el plazo
+                            estipulado. De necesitar modificaciones que no se encuentren dentro de los plazos
+                            correspondientes, se armará un nuevo presupuesto.</li>
+                    </ol>
+                </div>
+
+                <div class="financial-block">
+                    <div class="total-box">
+                        <div class="total-row">
+                            <span class="label">TOTAL: </span>
+                            <span class="amount" id="totalAmount">$0<span class="ars">ARS</span></span>
+                        </div>
+                        <div class="delivery-time">
+                            <div>Plazo estimado de entrega: <strong contenteditable="false" id="deliveryTime">1
+                                    Semana</strong></div>
+                            <div>Seña del 50%: <strong class="amount" id="depositAmount">$0</strong><span class="ars2">ARS</span></div>
+                        </div>
+                    </div>
+
+                    <div class="payment-methods">
+                        <strong>Métodos de Pago:</strong>
+                        <div><b>Alias:</b> juan.santoro.mp</div>
+                        <div><b>CBU:</b> 0000003100083344428039</div>
+                        <div><i><a href="mailto:juansantoro@live.com">(Transferencia Bancaria)</a></i><a href="mailto:juansantoro@live.com">
+                        </a></div><a href="mailto:juansantoro@live.com">
+                    </a></div><a href="mailto:juansantoro@live.com">
+                </a></div><a href="mailto:juansantoro@live.com">
+            </a></div><a href="mailto:juansantoro@live.com">
+
+            </a><div class="contact"><a href="mailto:juansantoro@live.com">
+                </a><div><a href="mailto:juansantoro@live.com"></a><a href="mailto:juansantoro@live.com"><img src="./PresupuestoJuan2_files/E-Mail.svg" alt="Correo Electrónico" class="Icono"> juansantoro@live.com</a>
+                </div>
+                <span>|</span>
+                <div><a href="https://instagram.com/marcos.9.de.julio" target="_blank"><img src="./PresupuestoJuan2_files/Instagram.svg" alt="Instagram" class="Icono"> @marcos.9.de.julio</a>
+                </div>
+                <span>|</span>
+                <div><a href="https://wa.me/+543487708708"><img src="./PresupuestoJuan2_files/WhatsApp.svg" alt="WhatsApp" class="Icono"></a><a href="tel:+543487708708" alt="Teléfono">
+                        +54 (3487) 708708</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>

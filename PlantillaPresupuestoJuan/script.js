@@ -22,6 +22,9 @@ const listaItemsAgregados = document.getElementById('lista-items-agregados');
 // Array para almacenar los ítems agregados antes de generar el presupuesto
 const itemsAgregados = [];
 
+// Tomar la fecha de hoy
+const fechaArgentina = new Date().toLocaleDateString("es-AR", {timeZone: "America/Argentina/Buenos_Aires"}).split("/").reverse().map(n => n.padStart(2, "0")).join("-");
+document.getElementById('invoiceDate').value = fechaArgentina;
 
 document.addEventListener('DOMContentLoaded', () => {
     const today = new Date().toISOString().split('T')[0];
