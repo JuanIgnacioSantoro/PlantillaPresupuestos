@@ -285,7 +285,7 @@ function exportAsPdf() {
 
     // 2. Tomar los datos del HTML usando sus IDs
     const presupuesto = "Presupuesto"
-    const idFactura = document.getElementById('input-numero').innerText;
+    const idFactura = document.getElementById('invoiceNumber').innerText;
     const cliente = document.getElementById('cliente-summary').innerText;
     const proyecto = document.getElementById('proyecto-summary').innerText;
 
